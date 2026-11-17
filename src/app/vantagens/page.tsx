@@ -78,7 +78,7 @@ export default function Vantagens() {
             <TituloDeSecao linha1="Claro ou escuro," linha2="sempre leve." escuro />
             <p className="mt-6 max-w-md text-[16px] leading-relaxed text-white/60">Interface em vidro, pensada para o dia inteiro de consultório. Você escolhe o tema que descansa mais a vista.</p>
           </Revelar>
-          <Revelar atraso={120}><Navegador src="/telas/consulta-escuro.webp" alt="VoicIA no modo escuro" /></Revelar>
+          <Revelar atraso={120}><Navegador src="/telas/consulta-escuro-escudo.webp" alt="VoicIA no modo escuro" /></Revelar>
         </div>
       </section>
 

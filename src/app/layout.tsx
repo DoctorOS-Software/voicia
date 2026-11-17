@@ -18,7 +18,7 @@ export const metadata: Metadata = {
   description:
     "Grave a consulta e a VoicIA escreve o prontuário, a receita e os documentos. Você revisa, assina e volta a olhar para o paciente. 30 dias grátis.",
   keywords: ["prontuário por voz", "IA médica", "transcrição de consulta", "prontuário automático", "receita digital", "VoicIA"],
-  icons: { icon: [{ url: "/marca/icone-voicia.svg", type: "image/svg+xml" }, { url: "/marca/icone-voicia-verde.png", type: "image/png" }], apple: "/marca/icone-voicia-verde.png" },
+  icons: { icon: [{ url: "/marca/voicia-escudo.png", type: "image/png" }], apple: "/marca/voicia-escudo-apple.png" },
   openGraph: {
     title: "VoicIA | Prontuário por voz com IA",
     description: "Grave a consulta. A VoicIA escreve. Você revisa e assina.",
@@ -26,7 +26,7 @@ export const metadata: Metadata = {
     locale: "pt_BR",
     url: "https://voicia.com.br",
     siteName: "VoicIA",
-    images: [{ url: "/marca/og-voicia.png", width: 1200, height: 630, alt: "VoicIA, prontuário por voz com IA" }],
+    images: [{ url: "/marca/og-voicia-app.png", width: 1200, height: 630, alt: "VoicIA, prontuário por voz com IA" }],
   },
 };
 

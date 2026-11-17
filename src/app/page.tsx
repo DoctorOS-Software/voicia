@@ -8,7 +8,7 @@ import { PainelGravando } from "@/components/PainelGravando";
 import { Planos } from "@/components/Planos";
 import { Perguntas } from "@/components/Perguntas";
 import { MarcaIcone } from "@/components/Marca";
-import { CADASTRO, PERGUNTAS } from "@/lib/conteudo";
+import { CADASTRO, EXTENSAO_CHROME, PERGUNTAS } from "@/lib/conteudo";
 
 const PALAVRAS = [
   { rotulo: ["Escuta a", "consulta inteira"], palavra: "Transcrição" },
@@ -60,7 +60,7 @@ export default function Inicio() {
           <Revelar className="relative mt-16 sm:mt-20">
             <div className="pointer-events-none absolute -bottom-24 -left-40 h-[420px] w-[520px] rounded-full bg-[radial-gradient(closest-side,rgba(14,160,120,.55),transparent)] blur-2xl" />
             <div className="pointer-events-none absolute -bottom-24 -right-40 h-[420px] w-[520px] rounded-full bg-[radial-gradient(closest-side,rgba(14,160,120,.55),transparent)] blur-2xl" />
-            <Navegador src="/telas/consulta-claro.webp" alt="Tela de consulta da VoicIA: paciente no topo, contexto e medicamentos no centro, suporte médico à direita e o botão de gravar embaixo" className="relative" />
+            <Navegador src="/telas/consulta-claro-escudo.webp" alt="Tela de consulta da VoicIA: paciente no topo, contexto e medicamentos no centro, suporte médico à direita e o botão de gravar embaixo" className="relative" />
           </Revelar>
         </div>
         <div className="h-24 bg-gradient-to-b from-transparent to-[#03100C] sm:h-32" />
@@ -176,6 +176,40 @@ export default function Inicio() {
                 <p className="mt-2 text-[14px] leading-relaxed text-white/50">{s.d}</p>
               </div>
             ))}
+          </Revelar>
+        </div>
+      </section>
+
+      {/* ===== Extensão para o Chrome (escuro) ===== */}
+      <section id="extensao" className="relative -mt-px overflow-hidden bg-tinta px-5 pb-28 sm:px-8 sm:pb-36">
+        <div className="pointer-events-none absolute -right-40 top-1/3 h-[420px] w-[520px] rounded-full bg-[radial-gradient(closest-side,rgba(14,160,120,.35),transparent)] blur-2xl" />
+        <div className="relative mx-auto grid max-w-[1180px] items-center gap-12 border-t border-white/10 pt-24 sm:pt-32 lg:grid-cols-[0.9fr_1.1fr] lg:gap-16">
+          <Revelar>
+            <Etiqueta>Novo · Extensão para o Chrome</Etiqueta>
+            <h2 className="mt-6 text-[clamp(34px,4.6vw,56px)] font-normal leading-[1.04] tracking-[-0.04em]">
+              <span className="texto-menta">A VoicIA dentro</span>
+              <br />
+              <span className="text-white/40">do sistema da clínica.</span>
+            </h2>
+            <p className="mt-6 max-w-md text-[16px] leading-relaxed text-white/60">
+              Uma barra pequena no topo da tela do sistema da clínica lê o nome do paciente aberto, grava a consulta e devolve o prontuário pronto. Você copia, ou deixa que ele entre sozinho na evolução.
+            </p>
+            <ul className="mt-7 space-y-2.5 text-[15px] text-white/75">
+              {["Grave pelo computador ou pelo celular conectado", "Anexe o PDF de um exame à consulta", "Nesta versão, funciona no sistema Amigo"].map((t) => (
+                <li key={t} className="flex items-start gap-3">
+                  <svg viewBox="0 0 20 20" className="mt-[3px] h-[18px] w-[18px] shrink-0 text-verde-vivo" aria-hidden="true"><path d="m5.5 10.2 3 3 6-6.4" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" /></svg>
+                  {t}
+                </li>
+              ))}
+            </ul>
+            <div className="mt-9 flex flex-wrap items-center gap-3">
+              <a href={EXTENSAO_CHROME} className="botao-verde" target="_blank" rel="noopener noreferrer">Instalar no Chrome</a>
+              <Link href="/solucoes/#extensao" className="botao-contorno !py-[0.95rem] !px-6">Como funciona</Link>
+            </div>
+            <p className="mt-4 text-[13px] text-white/40">Incluída no plano. Precisa de uma conta na VoicIA.</p>
+          </Revelar>
+          <Revelar atraso={120}>
+            <Navegador src="/telas/extensao-prontuario-pronto.webp" alt="Extensão da VoicIA no sistema de uma clínica: a barra no topo da tela e o prontuário pronto, com paciente fictício" endereco="sistema da clínica" />
           </Revelar>
         </div>
       </section>

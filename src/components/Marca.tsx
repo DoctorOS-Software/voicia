@@ -1,47 +1,14 @@
-import { useId } from "react";
+/* eslint-disable @next/next/no-img-element */
+// Logo do site = o mesmo do app (app.voicia.com.br): escudo com o microfone.
+// As imagens saem dos PNGs do app (src/assets/voicia-logo-dark.png), só recortadas e convertidas.
+// O símbolo de pétalas de 09/11/2026 saiu: o Luiz não aprovou e o app voltou ao escudo em 10/11/2026.
 
-/** Símbolo da VoicIA: duas pétalas de luz em V e o ponto (a IA ouvindo), num bloco de vidro verde. */
+/** Símbolo da VoicIA: o escudo com o microfone, sem o nome. */
 export function MarcaIcone({ className = "h-8 w-8" }: { className?: string }) {
-  const id = useId().replace(/:/g, "");
-  return (
-    <svg viewBox="0 0 256 256" className={className} aria-hidden="true">
-      <defs>
-        <linearGradient id={`${id}b`} x1="0" y1="0" x2=".35" y2="1">
-          <stop offset="0" stopColor="#7FE3C0" />
-          <stop offset=".48" stopColor="#14A47E" />
-          <stop offset="1" stopColor="#06624B" />
-        </linearGradient>
-        <radialGradient id={`${id}g`} cx=".5" cy="1.05" r=".7">
-          <stop offset="0" stopColor="#DDF7EC" stopOpacity=".95" />
-          <stop offset=".55" stopColor="#5FD9B0" stopOpacity=".35" />
-          <stop offset="1" stopColor="#5FD9B0" stopOpacity="0" />
-        </radialGradient>
-        <radialGradient id={`${id}p`} cx=".5" cy=".35" r=".75">
-          <stop offset="0" stopColor="#FFFFFF" />
-          <stop offset=".65" stopColor="#ECFBF5" />
-          <stop offset="1" stopColor="#B3EBD5" />
-        </radialGradient>
-      </defs>
-      <rect width="256" height="256" rx="66" fill={`url(#${id}b)`} />
-      <rect width="256" height="256" rx="66" fill={`url(#${id}g)`} />
-      <rect x="1.5" y="1.5" width="253" height="253" rx="64.5" fill="none" stroke="#fff" strokeOpacity=".5" strokeWidth="2.5" />
-      <g fill={`url(#${id}p)`}>
-        <path transform="translate(99 138) rotate(-27)" d="M0,-66 C32,-33 32,33 0,66 C-32,33 -32,-33 0,-66 Z" />
-        <path transform="translate(157 138) rotate(27)" d="M0,-66 C32,-33 32,33 0,66 C-32,33 -32,-33 0,-66 Z" />
-        <circle cx="128" cy="58" r="15" />
-      </g>
-    </svg>
-  );
+  return <img src="/marca/voicia-escudo-128.webp" alt="" aria-hidden="true" className={`object-contain ${className}`} />;
 }
 
-/** Logo completo: símbolo + nome ("Voic" na cor do texto, "IA" em verde). */
-export function Marca({ className = "", tamanho = "text-[22px]", icone = "h-8 w-8" }: { className?: string; tamanho?: string; icone?: string }) {
-  return (
-    <span className={`inline-flex items-center gap-2.5 ${className}`}>
-      <MarcaIcone className={icone} />
-      <span className={`${tamanho} font-normal tracking-[-0.02em]`}>
-        Voic<span className="ml-[0.04em] text-verde-vivo">IA</span>
-      </span>
-    </span>
-  );
+/** Logo completo do app, versão para fundo escuro (nome em branco, "IA" em verde-azulado). */
+export function Marca({ className = "h-12 w-auto", alt = "VoicIA, suporte médico" }: { className?: string; alt?: string }) {
+  return <img src="/marca/voicia-logo-app-escuro.webp" alt={alt} width={959} height={363} className={`block ${className}`} />;
 }

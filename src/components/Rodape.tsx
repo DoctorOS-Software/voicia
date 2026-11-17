@@ -1,10 +1,10 @@
 import Link from "next/link";
 import { Marca } from "./Marca";
-import { API_DOCS, APP, CADASTRO, PRIVACIDADE, TERMOS } from "@/lib/conteudo";
+import { API_DOCS, APP, CADASTRO, EXTENSAO_CHROME, PRIVACIDADE, TERMOS } from "@/lib/conteudo";
 
 const COLUNAS = [
   { titulo: "Produto", links: [["Soluções", "/solucoes/"], ["Vantagens", "/vantagens/"], ["Preços", "/precos/"], ["Dúvidas", "/faq/"]] },
-  { titulo: "Plataforma", links: [["Entrar", APP], ["Criar conta", CADASTRO], ["Documentação da API", API_DOCS]] },
+  { titulo: "Plataforma", links: [["Entrar", APP], ["Criar conta", CADASTRO], ["Extensão para o Chrome", EXTENSAO_CHROME], ["Documentação da API", API_DOCS]] },
   { titulo: "Legal", links: [["Termos de uso", TERMOS], ["Privacidade", PRIVACIDADE]] },
 ];
 
@@ -13,7 +13,7 @@ export function Rodape() {
     <footer className="relative overflow-hidden bg-tinta pt-24 text-white">
       <div className="mx-auto grid max-w-[1180px] gap-14 px-5 sm:px-8 lg:grid-cols-[1.4fr_1fr]">
         <div>
-          <Marca tamanho="text-[clamp(56px,9vw,104px)] leading-none" icone="h-[clamp(56px,9vw,104px)] w-[clamp(56px,9vw,104px)]" className="!gap-5" />
+          <Marca className="h-[clamp(96px,14vw,168px)] w-auto" />
           <p className="mt-8 max-w-sm text-[15px] leading-relaxed text-white/55">
             Prontuário por voz com inteligência artificial. Você atende; a VoicIA escreve.
           </p>

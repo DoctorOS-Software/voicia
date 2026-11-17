@@ -6,6 +6,8 @@ export const CADASTRO = `${APP}/auth`;
 export const TERMOS = `${APP}/termos.html`;
 export const PRIVACIDADE = `${APP}/privacidade.html`;
 export const API_DOCS = `${APP}/api-docs`;
+// Extensão da VoicIA para o Google Chrome (id fixo, o mesmo da chave da loja).
+export const EXTENSAO_CHROME = "https://chromewebstore.google.com/detail/pmfocjldlgmnajbdbjgpobogppelbioc";
 
 export const PRECO = {
   mensal: "247",
@@ -41,8 +43,9 @@ export type Pergunta = { categoria: string; p: string; r: string };
 
 export const PERGUNTAS: Pergunta[] = [
   { categoria: "Geral", p: "O que é a VoicIA?", r: "É uma plataforma de prontuário por voz com inteligência artificial. Você grava a consulta, a VoicIA transcreve, organiza o prontuário nos campos da sua especialidade e prepara receitas e documentos para você revisar e assinar." },
-  { categoria: "Geral", p: "Preciso instalar alguma coisa?", r: "Não. A VoicIA funciona no navegador, em app.voicia.com.br. No celular, você pode usar o navegador ou o app VoicIA, que serve de microfone e de câmera para a consulta aberta no computador." },
+  { categoria: "Geral", p: "Preciso instalar alguma coisa?", r: "Não. A VoicIA funciona no navegador, em app.voicia.com.br. No celular, você pode usar o navegador ou o app VoicIA, que serve de microfone e de câmera para a consulta aberta no computador. Para usar a VoicIA dentro do sistema da clínica, há também uma extensão opcional para o Google Chrome." },
   { categoria: "Geral", p: "A VoicIA substitui o meu prontuário eletrônico?", r: "Não precisa substituir. Muitos médicos usam a VoicIA para escrever e depois copiam ou baixam o texto para o sistema da clínica. Ela também guarda o histórico de cada paciente, se você preferir usar só ela." },
+  { categoria: "Uso", p: "Dá para usar a VoicIA dentro do sistema da minha clínica?", r: "Sim, com a extensão da VoicIA para o Google Chrome. Ela coloca uma barra no topo da tela do sistema da clínica, lê o nome do paciente aberto, grava a consulta pelo computador ou pelo celular conectado e devolve o prontuário organizado. Você copia o texto ou deixa que ele entre sozinho na evolução do paciente. Nesta versão, a extensão funciona no sistema Amigo." },
   { categoria: "Uso", p: "Como funciona a gravação?", r: "Você aperta Gravar no computador ou no celular e conduz a consulta normalmente. Dá para pausar e retomar. Ao finalizar, a IA monta o prontuário com queixa, história, exame físico, hipóteses, conduta e prescrição." },
   { categoria: "Uso", p: "Funciona para a minha especialidade?", r: "A VoicIA tem campos de prontuário próprios para 28 especialidades, de clínica geral a cardiologia, pediatria, ortopedia e psiquiatria, e você pode ligar, desligar e reordenar os campos do jeito que trabalha." },
   { categoria: "Uso", p: "Posso usar o celular para fotografar exames e receitas?", r: "Sim. O celular se conecta à consulta aberta no computador pelo QR code. Você fotografa o documento e a IA identifica se é receita, exame ou outro documento e coloca cada informação no lugar certo." },
