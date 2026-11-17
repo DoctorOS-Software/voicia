@@ -3,11 +3,11 @@ import type { ReactNode } from "react";
 import { TopoDePagina } from "@/components/TopoDePagina";
 import { ChamadaFinal, Navegador, TituloDeSecao } from "@/components/Pecas";
 import { Revelar } from "@/components/Revelar";
-import { ATALHOS_DO_SUPORTE, CADASTRO, DOCUMENTOS, ESPECIALIDADES } from "@/lib/conteudo";
+import { ATALHOS_DO_SUPORTE, CADASTRO, DOCUMENTOS, ESPECIALIDADES, EXTENSAO_CHROME } from "@/lib/conteudo";
 
 export const metadata: Metadata = {
   title: "Soluções | VoicIA",
-  description: "Gravação e transcrição, prontuário por especialidade, Suporte Médico com IA, documentos, pacientes e o celular como câmera. Conheça tudo o que a VoicIA faz.",
+  description: "Gravação e transcrição, prontuário por especialidade, Suporte Médico com IA, documentos, pacientes, o celular como câmera e a extensão para o Chrome. Conheça tudo o que a VoicIA faz.",
 };
 
 function Item({ children }: { children: ReactNode }) {
@@ -19,7 +19,7 @@ function Item({ children }: { children: ReactNode }) {
   );
 }
 
-function Bloco({ id, numero, titulo, apagado, texto, itens, visual, invertido = false }: { id: string; numero: string; titulo: string; apagado: string; texto: string; itens: ReactNode[]; visual: ReactNode; invertido?: boolean }) {
+function Bloco({ id, numero, titulo, apagado, texto, itens, visual, acao, invertido = false }: { id: string; numero: string; titulo: string; apagado: string; texto: string; itens: ReactNode[]; visual: ReactNode; acao?: ReactNode; invertido?: boolean }) {
   return (
     <section id={id} className="scroll-mt-28 border-t border-[#E3ECE8] py-20 sm:py-28">
       <div className={`grid items-center gap-12 lg:grid-cols-2 lg:gap-16 ${invertido ? "lg:[&>*:first-child]:order-2" : ""}`}>
@@ -28,6 +28,7 @@ function Bloco({ id, numero, titulo, apagado, texto, itens, visual, invertido = 
           <TituloDeSecao linha1={titulo} linha2={apagado} />
           <p className="mt-6 max-w-lg text-[16.5px] leading-relaxed text-texto-2">{texto}</p>
           <ul className="mt-8 space-y-3.5">{itens.map((i, k) => <Item key={k}>{i}</Item>)}</ul>
+          {acao && <div className="mt-9">{acao}</div>}
         </Revelar>
         <Revelar atraso={120}>{visual}</Revelar>
       </div>
@@ -66,7 +67,7 @@ export default function Solucoes() {
             apagado="A VoicIA escuta."
             texto="Aperte Gravar e conduza a consulta como sempre. Ao finalizar, a conversa vira texto e o prontuário começa a ser montado."
             itens={["Grave pelo computador ou pelo celular", "Pause e retome quando precisar", "Contexto do paciente e medicamentos em uso antes de começar", "Celular conectado à consulta pelo QR code"]}
-            visual={<Navegador src="/telas/consulta-claro.webp" alt="Tela de consulta da VoicIA" escuro={false} />}
+            visual={<Navegador src="/telas/consulta-claro-escudo.webp" alt="Tela de consulta da VoicIA" escuro={false} />}
           />
           <Bloco
             id="prontuario"
@@ -75,7 +76,7 @@ export default function Solucoes() {
             apagado="do seu jeito."
             texto="A IA organiza a consulta nos campos da sua especialidade: queixa principal, história, exame físico, resultados de exames, hipóteses diagnósticas, conduta e prescrição."
             itens={["Campos próprios para 28 especialidades", "Ligue, desligue e reordene os campos", "Revise e edite antes de salvar", "Copie para o seu sistema ou guarde na VoicIA"]}
-            visual={<Navegador src="/telas/consulta-escuro.webp" alt="Tela de consulta da VoicIA no modo escuro" />}
+            visual={<Navegador src="/telas/consulta-escuro-escudo.webp" alt="Tela de consulta da VoicIA no modo escuro" />}
             invertido
           />
           <Bloco
@@ -113,7 +114,7 @@ export default function Solucoes() {
             apagado="na ponta dos dedos."
             texto="Cada consulta fica guardada com o paciente. Ao digitar o nome, a VoicIA mostra as consultas anteriores e você retoma de onde parou."
             itens={["Busca por nome", "Queixa e hipóteses de cada consulta", "Documentos e fotos ligados à consulta", "Exporte ou exclua os dados a pedido do paciente (LGPD)"]}
-            visual={<Navegador src="/telas/pacientes-claro.webp" alt="Lista de pacientes da VoicIA com nomes fictícios" escuro={false} />}
+            visual={<Navegador src="/telas/pacientes-claro-escudo.webp" alt="Lista de pacientes da VoicIA com nomes fictícios" escuro={false} />}
           />
           <Bloco
             id="celular"
@@ -126,11 +127,21 @@ export default function Solucoes() {
               <div className="flex justify-center">
                 <div className="w-[260px] rounded-[44px] border border-[#1B2A25] bg-[#0B1512] p-2.5 shadow-[0_50px_100px_-40px_rgba(3,40,30,.6)] sm:w-[300px]">
                   {/* eslint-disable-next-line @next/next/no-img-element */}
-                  <img src="/telas/celular-claro.webp" alt="VoicIA no celular" className="block w-full rounded-[36px]" loading="lazy" />
+                  <img src="/telas/celular-claro-escudo.webp" alt="VoicIA no celular" className="block w-full rounded-[36px]" loading="lazy" />
                 </div>
               </div>
             }
             invertido
+          />
+          <Bloco
+            id="extensao"
+            numero="07 · EXTENSÃO PARA O CHROME"
+            titulo="A VoicIA dentro"
+            apagado="do sistema da clínica."
+            texto="Com a extensão para o Google Chrome, uma barra pequena fica no topo da tela do sistema da clínica. Ela lê o nome do paciente aberto, grava a consulta e devolve o prontuário organizado, sem trocar de janela."
+            itens={["Gravar e parar com um clique, pelo computador ou pelo celular conectado", "Copie o prontuário ou deixe que ele entre sozinho na evolução do paciente", "Anexe o PDF de um exame: o resumo vai para Resultado de exames", "Nesta versão, funciona no sistema Amigo"]}
+            visual={<Navegador src="/telas/extensao-gravando.webp" alt="Extensão da VoicIA gravando a consulta no topo do sistema de uma clínica, com paciente fictício" endereco="sistema da clínica" escuro={false} />}
+            acao={<a href={EXTENSAO_CHROME} className="botao-preto" target="_blank" rel="noopener noreferrer">Instalar no Chrome</a>}
           />
         </div>
       </div>
@@ -147,7 +158,7 @@ export default function Solucoes() {
           <Revelar className="mt-24 grid gap-4 md:grid-cols-3">
             {[
               { t: "DoctorOS", d: "A VoicIA funciona dentro do DoctorOS, sem trocar de sistema no meio do atendimento." },
-              { t: "Monitore Health", d: "Dados de saúde que o paciente registra no app Monitore aparecem para o médico, e os exames lidos voltam para ele." },
+              { t: "Extensão para o Chrome", d: "Uma barra no topo do sistema da clínica grava a consulta e devolve o prontuário. Nesta versão, funciona no Amigo." },
               { t: "API documentada", d: "Para clínicas que querem ligar a VoicIA ao próprio sistema." },
             ].map((c) => (
               <div key={c.t} className="cartao-claro p-7">

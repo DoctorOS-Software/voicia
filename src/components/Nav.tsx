@@ -37,7 +37,7 @@ export function Nav() {
         }`}
       >
         <Link href="/" aria-label="VoicIA, página inicial" className="text-white">
-          <Marca />
+          <Marca alt="" className="h-11 w-auto sm:h-12" />
         </Link>
 
         <ul className="hidden items-center gap-8 text-[14px] text-white/75 md:flex">

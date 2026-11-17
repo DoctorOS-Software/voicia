@@ -9,6 +9,7 @@ const INCLUI = [
   "Suporte Médico com IA em cada consulta",
   "Receitas, atestados, pedidos, laudos e relatórios",
   "Celular como microfone e câmera",
+  "Extensão para o Chrome no sistema da clínica",
   "Histórico de pacientes e consultas",
   "PDF com o logo da sua clínica",
   "Assinatura com certificado digital (Bird ID)",
