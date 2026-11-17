@@ -60,7 +60,7 @@ export default function Inicio() {
           <Revelar className="relative mt-16 sm:mt-20">
             <div className="pointer-events-none absolute -bottom-24 -left-40 h-[420px] w-[520px] rounded-full bg-[radial-gradient(closest-side,rgba(14,160,120,.55),transparent)] blur-2xl" />
             <div className="pointer-events-none absolute -bottom-24 -right-40 h-[420px] w-[520px] rounded-full bg-[radial-gradient(closest-side,rgba(14,160,120,.55),transparent)] blur-2xl" />
-            <Navegador src="/telas/consulta-claro-escudo.webp" alt="Tela de consulta da VoicIA: paciente no topo, contexto e medicamentos no centro, suporte médico à direita e o botão de gravar embaixo" className="relative" />
+            <Navegador src="/telas/consulta-claro-nov.webp" alt="Tela de consulta da VoicIA: nome do paciente no topo, o botão Gravar no centro, Anexar arquivo e Conectar celular ao lado" className="relative" />
           </Revelar>
         </div>
         <div className="h-24 bg-gradient-to-b from-transparent to-[#03100C] sm:h-32" />
@@ -195,7 +195,7 @@ export default function Inicio() {
               Uma barra pequena no topo da tela do sistema da clínica lê o nome do paciente aberto, grava a consulta e devolve o prontuário pronto. Você copia, ou deixa que ele entre sozinho na evolução.
             </p>
             <ul className="mt-7 space-y-2.5 text-[15px] text-white/75">
-              {["Grave pelo computador ou pelo celular conectado", "Anexe o PDF de um exame à consulta", "Nesta versão, funciona no sistema Amigo"].map((t) => (
+              {["Grave pelo computador ou pelo celular conectado", "Anexe o PDF de um exame à consulta", "Corrija o texto num painel grande"].map((t) => (
                 <li key={t} className="flex items-start gap-3">
                   <svg viewBox="0 0 20 20" className="mt-[3px] h-[18px] w-[18px] shrink-0 text-verde-vivo" aria-hidden="true"><path d="m5.5 10.2 3 3 6-6.4" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" /></svg>
                   {t}
