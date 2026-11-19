@@ -1,0 +1,54 @@
+# Testes a cada pedido de revisão e a cada envio para a main (regra do time de 19/11/2026,
+# cérebro: como-trabalhar/testes.md). Vermelho = não juntar.
+# Minutos: o plano gratuito da organização tem limite mensal para todos os repositórios.
+# Por isso: só pedido de revisão e main, nada de docs/.md, envio novo cancela a rodada
+# anterior do mesmo ramo, e rodada presa para em 15 min.
+name: Testes
+
+on:
+  push:
+    branches: [main]
+    paths-ignore: ['docs/**', '**/*.md']
+  pull_request:
+    branches: [main]
+    paths-ignore: ['docs/**', '**/*.md']
+  workflow_dispatch:
+
+concurrency:
+  group: testes-${{ github.ref }}
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+
+jobs:
+  testes:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    env:
+      # Valores de mentira: o cliente do Supabase é criado no import e não aceita URL vazia.
+      # Teste não fala com banco de verdade (produção tem paciente real).
+      VITE_SUPABASE_URL: https://placeholder.supabase.co
+      VITE_SUPABASE_PUBLISHABLE_KEY: placeholder-key
+      VITE_SUPABASE_ANON_KEY: placeholder-key
+      NEXT_PUBLIC_SUPABASE_URL: https://placeholder.supabase.co
+      NEXT_PUBLIC_SUPABASE_ANON_KEY: placeholder-key
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - name: Instalar dependências
+        run: npm ci --no-audit --no-fund
+      - name: Verificação de tipos
+        run: npm run typecheck
+      - name: Testes
+        run: npm test
+      - name: Lint (só erros; ainda não bloqueia)
+        continue-on-error: true
+        run: npm run lint -- --quiet
+      - name: Build do site (export estático)
+        run: npm run build
